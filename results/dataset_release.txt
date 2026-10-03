@@ -1,0 +1,32 @@
+# 数据集发布记录（GitHub Release 附件）
+
+原始数据集以 Release 附件形式托管，不占用仓库历史体积。
+
+## 附件信息
+
+文件名   : rm-dataset-1511labeled-302unlabeled.zip
+大小     : 216395616 字节（206.4 MiB）
+文件数   : 3329（含目录项；实际图片 1813 张 + 标签 1511 个）
+SHA256   : 847bfb09a69e3672da322c55b26223316abdbbc24a55ae736aa4dacaecc31196
+压缩方式 : 不压缩存储（-0），JPEG 本身已压缩，再压缩无收益
+
+## 内容结构（解压后置于作业根目录）
+
+data/
+├── labeled/
+│   ├── images/    1511 张已标注图像
+│   └── labels/    1511 个 YOLO 格式标签（class cx cy w h，归一化）
+└── unlabeled/
+    └── images/     302 张未标注图像
+
+## 对应的 Release
+
+仓库  : https://github.com/tianminmax/RM-YOLO26-Training
+标签  : dataset-v1
+下载  : https://github.com/tianminmax/RM-YOLO26-Training/releases/download/dataset-v1/rm-dataset-1511labeled-302unlabeled.zip
+
+## 说明
+
+- 该数据集由培训方提供，此处仅做转存，便于复现时获取同一份数据。
+- 数据来源链接（转录自培训通知）：https://drive.google.com/file/d/1hzsX6HDbEQty0PA3iZJM74xWzPRKRX7f/view?usp=drive_link
+- 划分清单见 results/split/{train,val,test}.txt，可与解压后的文件集合直接比对。

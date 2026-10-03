@@ -54,6 +54,7 @@ RM-YOLO26-Training/
 │   ├── dataset_stats.csv         各集合图片数、框数、平均框数
 │   ├── split/                    本次划分清单（train/val/test 各一份文件名列表）
 │   ├── environment.txt           软件与硬件环境、关键训练参数
+│   ├── dataset_release.txt       数据集 Release 附件的信息与校验和
 │   ├── checksums.sha256          关键文件校验和（含提交权重）
 │   ├── baseline_n_640/           每个实验：args、results.csv、曲线、混淆矩阵、预测对比
 │   ├── exp_imgsz960/
@@ -126,9 +127,16 @@ model.predict("your_image.jpg", imgsz=960, conf=0.25, iou=0.7)
 | 环境与超参数 | `results/environment.txt` |
 | 提交权重 `刘天民.pt` | `weights/best_yolo26n_imgsz960.pt`（SHA256 相同，见 `results/checksums.sha256`） |
 
-**原始数据集（约 215 MB）未包含在本仓库中**，因为它超出 GitHub 单文件/仓库体积的合理范围。为了让它照样可复现，仓库里额外提供了：数据来源链接、完整划分清单、数据集统计、环境版本、以及逐项核对清单——全部写在 [`docs/06-复现指南.md`](docs/06-复现指南.md) 里，照着走可以在拿到数据包后复现到指标级。
+**数据集通过 Release 附件提供**（不占仓库历史体积）：
 
-如果确实需要把数据一并托管，推荐用 **GitHub Release 附件**（不占仓库历史体积）或 **Git LFS**，而不是直接提交图像。
+```bash
+curl -L -o rm-dataset.zip \
+  https://github.com/tianminmax/RM-YOLO26-Training/releases/download/dataset-v1/rm-dataset-1511labeled-302unlabeled.zip
+sha256sum rm-dataset.zip   # 应为 847bfb09a69e3672da322c55b26223316abdbbc24a55ae736aa4dacaecc31196
+unzip rm-dataset.zip -d .  # 解压出 data/labeled 与 data/unlabeled
+```
+
+附件信息记录在 `results/dataset_release.txt`；完整的复现步骤、每步预期数字与核对清单见 [`docs/06-复现指南.md`](docs/06-复现指南.md)。除数据集外还需要培训方下发的 CodeBase（含 `ultralytics-YOLO26` 源码与 `yolo26n.pt`），这一部分含第三方源码，未随仓库分发。
 
 ## 说明
 

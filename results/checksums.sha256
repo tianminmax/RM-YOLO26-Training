@@ -1,18 +1,20 @@
 # 关键文件 SHA256 校验和
 # 校验方式：cd RM-YOLO26-Training && sha256sum -c results/checksums.sha256
-# 说明：提交给培训方的权重 刘天民.pt 与本仓库的 weights/best_yolo26n_imgsz960.pt 是同一文件，哈希相同。
-c6815f32eed3467f4f08dca05468d7f3c218290d5ed4559f818ef597ea1bd2bc  README.md
+# 说明1：提交给培训方的权重 刘天民.pt 与本仓库的 weights/best_yolo26n_imgsz960.pt 是同一文件，哈希相同。
+# 说明2：数据集为 Release 附件（不在仓库内），其哈希见 results/dataset_release.txt。
+6a63157af2fa77703a8e4905ad8316789b765abdd2b40aebf7125975158b16bc  README.md
 57b046596f3b7488f94870d8b9c2cb4f7adf45c3dc41b9275b55a5da3fb852d9  docs/01-训练报告.md
 129497e6a9deda31f82f03d4329bb507371199bd97c5ec79782d01fe34846d77  docs/02-训练全流程.md
 460536db1b797471b9e44c80b6f6e80eeef847296e96b2cad3593da8e7ec4192  docs/03-常见问题与排错.md
 4a64365a7489998c1f7d635a44a138a536fdd23f6e1add4ae129d8061ecefab5  docs/04-实验记录与结论.md
 dc35cae1b0aba33f95355383e310f45ff429c980d94fd7740bb3e0b624cf0093  docs/05-训练过程详细数据.md
-0ef48f84ba6ae75fbb553f30264ccf6c7450a6e0d65deae7d89c723f90eadf08  docs/06-复现指南.md
+6b1cacbf0a65cb700d0bececf6b621b636f1f776fcdf8dcdf849a5c0c8b2795b  docs/06-复现指南.md
 c2445ff5d60b76cc1dfdd952e812b98ba0ea8f6737019b98c3f9dacf96d7ba74  configs/data.yaml
 6b2902130672f042ec5c777cb5abe1ff19c3070f3e1745c11158337e92d8058f  results/all_epochs.csv
 4b795b23bb9bf7ae74bd385182aae820bc0545258d35708b8edfa6e8bbd829ad  results/autolabel_stats.csv
 68d166d1ea28dd7d89189994655c659c8c2f78f46e34185c1087e93e53536e60  results/dataset_stats.csv
 2060d3e251f98b655ea4917699525fe0479301aec0b36d52f5b7a4d8c8375d4b  results/summary.csv
+3efdeb3c214bf603895cdb35aff0cf4fc8dce0606da579bdd120c3aa667d29b8  results/dataset_release.txt
 8590360a27f24fbe2e29dc504b750cdb22d3cd663617c6395e9267f3e56eec6e  results/environment.txt
 8b2c019a50e2b1700bd429d19f776926e82feedf53612fef72c34fb50ab0379f  results/split/test.txt
 37eae194bac4457a98f10fa66bd56541b08c21b98353dbca09ce88a30558b72e  results/split/train.txt
