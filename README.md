@@ -2,6 +2,8 @@
 
 以 **YOLO26n** 为 baseline，在 RM 比赛图像上训练机器人检测模型。本仓库用于复盘整个训练全周期：数据划分、baseline、调参、误差分析、未标注数据利用，以及过程中踩过的坑。
 
+仓库地址：<https://github.com/tianminmax/RM-YOLO26-Training>
+
 | 项目 | 内容 |
 |---|---|
 | 任务 | 单类别（`robot`）目标检测 |
