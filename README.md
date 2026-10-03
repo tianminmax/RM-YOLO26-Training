@@ -115,17 +115,17 @@ model.predict("your_image.jpg", imgsz=960, conf=0.25, iou=0.7)
 
 **作业中出现的每一个数字，都能在本仓库里找到出处**：
 
-| 作业中的数据 | 本仓库对应文件 |
-|---|---|
-| 最终成绩 mAP50 0.9594 / mAP75 0.8202 / mAP50-95 0.6684 | `results/summary.csv`、`results/test_eval/*/metrics.json` |
-| 训练表格（各实验配置与结果） | `results/<实验名>/args.yaml` + `results/summary.csv` |
-| 逐轮训练曲线（496 行） | `results/all_epochs.csv`、`results/<实验名>/results.csv` |
-| 训练曲线图 / PR 曲线 / 混淆矩阵 / 预测对比 | `results/<实验名>/`、`results/test_eval/`、`figures/` |
-| 数据集划分（1057/227/227） | `results/split/{train,val,test}.txt`（本次实际使用的文件名清单）、`results/dataset_stats.csv` |
-| 误检/漏检统计（73 FN / 76 FP） | `docs/04` 与 `results/test_eval/*/confusion_matrix_normalized.png` |
-| 未标注数据预标注统计 | `results/autolabel_stats.csv` |
-| 环境与超参数 | `results/environment.txt` |
-| 提交权重 `刘天民.pt` | `weights/best_yolo26n_imgsz960.pt`（SHA256 相同，见 `results/checksums.sha256`） |
+| 作业中的数据                                           | 本仓库对应文件                                                                                |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| 最终成绩 mAP50 0.9594 / mAP75 0.8202 / mAP50-95 0.6684 | `results/summary.csv`、`results/test_eval/*/metrics.json`                                     |
+| 训练表格（各实验配置与结果）                           | `results/<实验名>/args.yaml` + `results/summary.csv`                                          |
+| 逐轮训练曲线（496 行）                                 | `results/all_epochs.csv`、`results/<实验名>/results.csv`                                      |
+| 训练曲线图 / PR 曲线 / 混淆矩阵 / 预测对比             | `results/<实验名>/`、`results/test_eval/`、`figures/`                                         |
+| 数据集划分（1057/227/227）                             | `results/split/{train,val,test}.txt`（本次实际使用的文件名清单）、`results/dataset_stats.csv` |
+| 误检/漏检统计（73 FN / 76 FP）                         | `docs/04` 与 `results/test_eval/*/confusion_matrix_normalized.png`                            |
+| 未标注数据预标注统计                                   | `results/autolabel_stats.csv`                                                                 |
+| 环境与超参数                                           | `results/environment.txt`                                                                     |
+| 提交权重 `model.pt`                                    | `weights/best_yolo26n_imgsz960.pt`（SHA256 相同，见 `results/checksums.sha256`）              |
 
 **数据集通过 Release 附件提供**（不占仓库历史体积）：
 
