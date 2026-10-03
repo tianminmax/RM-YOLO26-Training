@@ -34,7 +34,8 @@ RM-YOLO26-Training/
 │   ├── 01-训练报告.md             作业正式报告（问题、心得、训练表格）
 │   ├── 02-训练全流程.md           从环境到交付的完整流程与决策规则
 │   ├── 03-常见问题与排错.md       真实踩坑记录 + 排查方法论
-│   └── 04-实验记录与结论.md       逐实验配置、曲线、结论与消融分析
+│   ├── 04-实验记录与结论.md       逐实验配置、曲线、结论与消融分析
+│   └── 05-训练过程详细数据.md     逐轮明细（每 10 轮汇总）、开销统计、可复现性证据
 ├── code/
 │   ├── prepare_data.py           分层划分数据 + 生成 data.yaml
 │   ├── train.py                  训练脚本（含续训护栏）
@@ -46,12 +47,13 @@ RM-YOLO26-Training/
 │   └── data.yaml                 数据集配置（路径需按本机修改）
 ├── results/
 │   ├── summary.csv               所有实验在 test 集上的指标总表
+│   ├── all_epochs.csv            三个实验 496 轮的逐轮训练数据合并表
 │   ├── baseline_n_640/           每个实验：args、results.csv、曲线、混淆矩阵、预测对比
 │   ├── exp_imgsz960/
 │   ├── exp_imgsz960_v2/
 │   ├── test_eval/                test 集评估的 metrics.json 与曲线
-│   └── autolabel_stats*.csv      302 张未标注数据的预标注统计
-├── figures/                      报告引用的关键图
+│   └── autolabel_stats.csv       302 张未标注数据的预标注统计（已合并为一份）
+├── figures/                      报告引用的关键图（含预标注示例、零检出样本）
 └── weights/
     └── best_yolo26n_imgsz960.pt  最终模型权重（5.2 MB）
 ```
