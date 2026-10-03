@@ -30,3 +30,11 @@ data/
 - 该数据集由培训方提供，此处仅做转存，便于复现时获取同一份数据。
 - 数据来源链接（转录自培训通知）：https://drive.google.com/file/d/1hzsX6HDbEQty0PA3iZJM74xWzPRKRX7f/view?usp=drive_link
 - 划分清单见 results/split/{train,val,test}.txt，可与解压后的文件集合直接比对。
+
+## 发布后的下载验证记录
+
+日期     : 2026-10-03
+操作     : 从上述 Release 链接重新下载附件，校验 SHA256
+结果     : `847bfb09a69e3672da322c55b26223316abdbbc24a55ae736aa4dacaecc31196` —— 与本地打包文件一致 ✅
+
+即：任何人在任何机器上按 docs/06-复现指南.md 的 1.1 节操作，都能拿到与本次训练完全相同的数据。
