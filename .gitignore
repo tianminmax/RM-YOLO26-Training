@@ -18,5 +18,6 @@ yolo26n.pt
 
 # 编辑器
 .vscode/
+.history/
 .idea/
 .DS_Store
