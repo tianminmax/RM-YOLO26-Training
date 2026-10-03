@@ -1,0 +1,28 @@
+# 本次训练所使用的软件与硬件环境
+
+## Python 与关键库（conda 环境 ai-env）
+python      : 3.11.16
+torch       : 2.7.1+cu128
+ultralytics : 8.4.7  (来自 /home/tomliu/Programs/assignment4/codebase/ultralytics-YOLO26/ultralytics/__init__.py)
+torchvision : 0.22.1+cu128
+numpy       : 2.4.6
+platform    : Linux 6.8.0-138-generic (x86_64)
+
+说明：训练时使用作业提供的本地 CodeBase 源码（ultralytics 8.4.7），
+运行时把 codebase/ultralytics-YOLO26 插入 sys.path 首位，而不是使用 pip 安装版。
+
+## 硬件（记录自本机 nvidia-smi）
+GPU      : NVIDIA GeForce RTX 5060 Laptop (8151 MiB)
+驱动     : 595.91.07
+CUDA     : 13.2
+CPU      : 32 线程
+内存     : 14 GiB（另加 6 GiB swap，用于避免整机卡死，详见 docs/03）
+
+## 关键训练参数（三个实验一致，仅输入尺寸不同）
+optimizer : auto -> MuSGD, lr0=0.01, momentum=0.9
+amp / EMA : 开启 / 开启
+warmup    : 3 轮 (warmup_momentum=0.8, warmup_bias_lr=0.1)
+lr 调度   : 线性衰减至 lrf=0.01
+增强      : mosaic 1.0, HSV(0.015/0.7/0.4), translate 0.1, scale 0.5, fliplr 0.5, 最后 10 轮关闭 mosaic
+早停      : patience=50
+随机性    : seed=0, deterministic=True（实验 2 与实验 3 前 30 轮逐点一致，见 docs/05）

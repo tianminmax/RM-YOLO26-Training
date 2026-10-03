@@ -1,0 +1,5 @@
+split,images,boxes,boxes_per_image
+train,1057,4777,4.52
+val,227,1042,4.59
+test,227,1036,4.56
+合计,1511,6855,4.54

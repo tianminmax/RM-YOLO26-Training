@@ -37,7 +37,8 @@ RM-YOLO26-Training/
 │   ├── 02-训练全流程.md           从环境到交付的完整流程与决策规则
 │   ├── 03-常见问题与排错.md       真实踩坑记录 + 排查方法论
 │   ├── 04-实验记录与结论.md       逐实验配置、曲线、结论与消融分析
-│   └── 05-训练过程详细数据.md     逐轮明细（每 10 轮汇总）、开销统计、可复现性证据
+│   ├── 05-训练过程详细数据.md     逐轮明细（每 10 轮汇总）、开销统计、可复现性证据
+│   └── 06-复现指南.md             需要准备什么、每步命令与预期数字、核对清单
 ├── code/
 │   ├── prepare_data.py           分层划分数据 + 生成 data.yaml
 │   ├── train.py                  训练脚本（含续训护栏）
@@ -50,6 +51,10 @@ RM-YOLO26-Training/
 ├── results/
 │   ├── summary.csv               所有实验在 test 集上的指标总表
 │   ├── all_epochs.csv            三个实验 496 轮的逐轮训练数据合并表
+│   ├── dataset_stats.csv         各集合图片数、框数、平均框数
+│   ├── split/                    本次划分清单（train/val/test 各一份文件名列表）
+│   ├── environment.txt           软件与硬件环境、关键训练参数
+│   ├── checksums.sha256          关键文件校验和（含提交权重）
 │   ├── baseline_n_640/           每个实验：args、results.csv、曲线、混淆矩阵、预测对比
 │   ├── exp_imgsz960/
 │   ├── exp_imgsz960_v2/
@@ -105,9 +110,28 @@ model.predict("your_image.jpg", imgsz=960, conf=0.25, iou=0.7)
 - 推理 OOM 而训练正常：训练用 AMP 半精度，推理默认 FP32
 - 302 张未标注数据不能当负样本用：会教模型"这里不要框"
 
+## 数据与可复现性
+
+**作业中出现的每一个数字，都能在本仓库里找到出处**：
+
+| 作业中的数据 | 本仓库对应文件 |
+|---|---|
+| 最终成绩 mAP50 0.9594 / mAP75 0.8202 / mAP50-95 0.6684 | `results/summary.csv`、`results/test_eval/*/metrics.json` |
+| 训练表格（各实验配置与结果） | `results/<实验名>/args.yaml` + `results/summary.csv` |
+| 逐轮训练曲线（496 行） | `results/all_epochs.csv`、`results/<实验名>/results.csv` |
+| 训练曲线图 / PR 曲线 / 混淆矩阵 / 预测对比 | `results/<实验名>/`、`results/test_eval/`、`figures/` |
+| 数据集划分（1057/227/227） | `results/split/{train,val,test}.txt`（本次实际使用的文件名清单）、`results/dataset_stats.csv` |
+| 误检/漏检统计（73 FN / 76 FP） | `docs/04` 与 `results/test_eval/*/confusion_matrix_normalized.png` |
+| 未标注数据预标注统计 | `results/autolabel_stats.csv` |
+| 环境与超参数 | `results/environment.txt` |
+| 提交权重 `刘天民.pt` | `weights/best_yolo26n_imgsz960.pt`（SHA256 相同，见 `results/checksums.sha256`） |
+
+**原始数据集（约 215 MB）未包含在本仓库中**，因为它超出 GitHub 单文件/仓库体积的合理范围。为了让它照样可复现，仓库里额外提供了：数据来源链接、完整划分清单、数据集统计、环境版本、以及逐项核对清单——全部写在 [`docs/06-复现指南.md`](docs/06-复现指南.md) 里，照着走可以在拿到数据包后复现到指标级。
+
+如果确实需要把数据一并托管，推荐用 **GitHub Release 附件**（不占仓库历史体积）或 **Git LFS**，而不是直接提交图像。
+
 ## 说明
 
-- 数据集与原始标注**未包含**在本仓库中，仅保留配置与统计。
 - 所有指标均由 `code/` 中的脚本产出，可按上面的命令复现。
 - 各实验的原始训练曲线与混淆矩阵见 `results/`，报告正文见 `docs/01-训练报告.md`。
 - **关于 `code/`**：这些脚本原本放在作业根目录下运行（与 `codebase/`、`datasets/`、`runs/` 同级），脚本内部用 `Path(__file__).parent` 定位根目录。若要真正复现，请把 `code/` 里的脚本拷回作业根目录，或用 `--data` / `--project` 显式指定路径。本仓库保留源码是为了让流程可追溯。
