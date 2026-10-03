@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-03 12:50:10",
+  "weights": "runs/baseline_n_640/weights/best.pt",
+  "run": "baseline_n_640",
+  "split": "test",
+  "imgsz": 640,
+  "batch": 8,
+  "precision": 0.9333,
+  "recall": 0.8913,
+  "mAP50": 0.9393,
+  "mAP75": 0.7714,
+  "mAP50-95": 0.634
+}

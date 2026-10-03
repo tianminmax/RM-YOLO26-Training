@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-03 12:50:16",
+  "weights": "runs/exp_imgsz960/weights/best.pt",
+  "run": "exp_imgsz960",
+  "split": "test",
+  "imgsz": 960,
+  "batch": 4,
+  "precision": 0.9261,
+  "recall": 0.8951,
+  "mAP50": 0.9433,
+  "mAP75": 0.7846,
+  "mAP50-95": 0.6489
+}

@@ -1,0 +1,8 @@
+# RM 第四次培训作业 - YOLO26n 数据集配置
+path: /home/tomliu/Programs/assignment4/datasets/rm
+train: images/train
+val: images/val
+test: images/test
+nc: 1
+names:
+  0: robot

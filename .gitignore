@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+# ultralytics 运行产物（本仓库只保留筛选后的结果）
+runs/
+datasets/
+*.cache
+
+# 大文件 / 临时产物
+*.tmp
+*.log
+yolo11n.pt
+yolov8n.pt
+yolo26n.pt
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
